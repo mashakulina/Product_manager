@@ -39,18 +39,7 @@ class ProductRepositoryTest {
 
         Product[] actual = repository.findAll();
         Product[] expected = {book1, book2, smartphone2};
-    }
 
-    @Test
-    public void removeBynNonEexistentId() {
-        repository.save(book1);
-        repository.save(smartphone1);
-        repository.save(book2);
-        repository.save(smartphone2);
-
-        repository.removeById(5);
-
-        Product[] actual = repository.findAll();
-        Product[] expected = {book1, smartphone1, book2, smartphone2};
+        assertArrayEquals(expected, actual);
     }
 }

@@ -22,17 +22,15 @@ public class ProductRepository {
     }
 
     public void removeById(int id) {
+        int length = products.length - 1;
+        Product[] tmp = new Product[length];
+        int index = 0;
         for (Product product : products) {
-            if (product.getId() == id) {
-                int length = products.length - 1;
-                Product[] tmp = new Product[length];
-                int index = 0;
-                if (product.getId() != id) {
-                    tmp[index] = product;
-                    index++;
-                }
-                products = tmp;
+            if (product.getId() != id) {
+                tmp[index] = product;
+                index++;
             }
+            products = tmp;
         }
     }
 }
